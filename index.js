@@ -2,7 +2,6 @@
     const seriesData = await fetchSeriesData()
     console.log('seriesData: ', seriesData)
 
-
     let barsToRender = seriesData
     const canvas = document.getElementById('kline');
 
@@ -19,6 +18,8 @@
         ctx.moveTo(canvasW * 0.96, canvasH);
         ctx.lineTo(canvasW * 0.96, 0);
         ctx.stroke();
+
+        // Find the highest and lowest numbers in the set
         let highestPrice = 0
         let lowestPrice = Number(barsToRender[0][1])
         for (let bar of barsToRender) {
@@ -33,6 +34,8 @@
         const upperbound = Math.floor(highestPrice + margin)
         const bound = upperbound - lowerbound
         const currencyperunit = bound / canvasH
+
+        // Graph the notches on the axis
         let step = lowerbound
         const interval = Math.floor((upperbound - lowerbound) / 10)
         let num = 0
@@ -42,18 +45,17 @@
             ctx.moveTo(canvasW * 0.96, canvasH * i);
             ctx.lineTo(canvasW * 0.97, canvasH * i);
             ctx.stroke();
-            
-
             ctx.fillText(String(step), canvasW * 0.97, canvasH * (i + 0.01));
-
             step += interval;
             num++
         }
 
+        // Graph each data item on the canvas
         const width = 7
         let x = 0
         let y, height, color
         for (let bar of barsToRender) {
+            // Determine whether the item is green or red
             color = bar[1] < bar[4] ? '#5eba89' : '#ce3d4e'
 
             // bar rectangle
@@ -68,6 +70,7 @@
             ctx.lineTo(x + width * 0.5, canvasH - ((bar[3] - lowerbound) / currencyperunit))
             ctx.strokeStyle = color
             ctx.stroke();
+
             // end of loop interval adjuster
             x += 10
         }
