@@ -3,7 +3,10 @@ This is my submission to Binance's Front End developer test #1. I built a script
 
 ![My Demo](my-kline.png)
 
-### What I would change if I had more time?
+## Demo
+You may visit this project [demo here](https://abdu997.github.io/binance-fe-test/).
+
+## What I would change if I had more time?
 - I would make my script more efficient
 - I would more on the styling of my graph
 - I would figure out how to handle new payloads that match the timestamp of a past payload.
