@@ -10,4 +10,5 @@ You may visit this project [demo here](https://abdu997.github.io/binance-fe-test
 - I would make my script more efficient
 - I would more on the styling of my graph
 - I would figure out how to handle new payloads that match the timestamp of a past payload.
+- I would work on the scale of the Y-axis
 
