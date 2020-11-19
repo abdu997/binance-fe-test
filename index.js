@@ -78,6 +78,9 @@
 
     subcribe(data => { // data: [time, open, high, low, close]
         console.log('suncribe: ', data)
+        if(barsToRender[barsToRender.length - 1][0] === data[0]){
+            barsToRender.pop()
+        }
         barsToRender.push(data)
         barsToRender = barsToRender.slice(barsToRender.length - 120)
         drawGraph()
