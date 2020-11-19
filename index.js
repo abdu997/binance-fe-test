@@ -4,9 +4,7 @@
 
 
     let barsToRender = seriesData
-    barsToRender = barsToRender.slice(barsToRender.length - 120)
     const canvas = document.getElementById('kline');
-    drawGraph()
 
     function drawGraph() {
         const ctx = canvas.getContext('2d');
